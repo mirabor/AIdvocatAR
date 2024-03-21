@@ -1,6 +1,6 @@
-
 # table of contents
 - [app demo](#App-Demo)
+- [notes for readability](#notes-for-readability)
 - [how to Run](#How-to-Run)
 - [how it's written](#How-it's-written)
 
@@ -8,13 +8,22 @@
 # app demo
 
 
+# notes for readability
+- i mainly use xcode's local git source control hence crazy commit history sorry
+- started adding firebase but decided not to as of rn
+- future plans:
+    - add sketchfab download api (https://sketchfab.com/developers/download-api) to access library of .usdz models and populate model picker view
+
+
 # how to run
-- install XCode version 13 and have an iPhone X or later
+- have XCode at least version 13
+- have iPhone X or later
+- have usb—usb-c cord 
 - clone the repo
-- Go to the project directory
+- plug in and build 
 
-*might add firebase components later but not rn. don't do the below if not using firebase!*
-
+*might add backend  later but firebase is currently not implememented. don't do the below if not using firebase!*
+- go to the project directory
 - (if firebase used) run the following command to create podfile
 ```bash
 pod init
@@ -72,6 +81,6 @@ pod install
 
 
 # how it's written
-swiftui, arkit, focusentity, realitykit
+swiftui, arkit, focusentity, realitykit, safariservices
 
 
