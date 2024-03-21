@@ -10,26 +10,22 @@
 # App Demo
 
 
-# How to Run
-First make sure to install XCode version 13 or later and have iPhone X or later versions.
+# how to run
+- install XCode version 13 and have an iPhone X or later
+- clone the repo
+- Go to the project directory
 
-Clone the repository:
+*might add firebase components later but not rn. don't do the below if not using firebase!*
 
-Go to the project directory.
-
-Next, run the following command to create podfile.
+- (if firebase used) run the following command to create podfile
 ```bash
 pod init
 ```
-
-Open the podfile by the following command to add the dependencies.
+- open the podfile
 ```bash
 open podfile
 ```
-
-Copy and paste the follwing text to the podfile
-
-
+- copy and paste this to the podfile
 ```
 # Uncomment the next line to define a global platform for your project
 platform :ios, '14.0'
@@ -70,17 +66,14 @@ end
 
 ```
 
-Run the following command to install the dependencies to the podfile.
+- install the dependencies to the podfile.
 ```bash
 pod install
 ```
-Finally, open the xcworkspace file using the Xcode. Connect your iphone to your MacBook and run the code :)
+- open the .xcworkspace file and run
 
-# Context
 
-# Content
-
-# How it's written
-The front-end was implemented using SwiftUI, ARKit, MessageUI, and FocusEntity. The User Authentication and Cloud Stroge was developed using Google Firebase.
+# how it's written
+swiftui, arkit, focusentity, realitykit
 
 
