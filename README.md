@@ -1,13 +1,11 @@
 
-# Table of contents
-- [App Demo](#App-Demo)
-- [How to Run](#How-to-Run)
-- [Context](#Context)
-- [Content](#Content)
-- [How it's written](#How-it's-written)
+# table of contents
+- [app demo](#App-Demo)
+- [how to Run](#How-to-Run)
+- [how it's written](#How-it's-written)
 
 
-# App Demo
+# app demo
 
 
 # how to run
