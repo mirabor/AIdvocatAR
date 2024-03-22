@@ -6,7 +6,7 @@ import MessageUI
 import FirebaseAuth
 
 /// Main View
-struct AboutUsView: View {
+struct SettingsView: View {
 
     /// The delegate required by `MFMailComposeViewController`
     private let mailComposeDelegate = MailDelegate()
@@ -246,7 +246,7 @@ struct AboutUsView: View {
 }
 
 // MARK: The mail part
-extension AboutUsView {
+extension SettingsView {
 
     /// Delegate for view controller as `MFMailComposeViewControllerDelegate`
     private class MailDelegate: NSObject, MFMailComposeViewControllerDelegate {
@@ -276,7 +276,7 @@ extension AboutUsView {
 }
 
 // MARK: The message part
-extension AboutUsView {
+extension SettingsView {
 
     /// Delegate for view controller as `MFMessageComposeViewControllerDelegate`
     private class MessageDelegate: NSObject, MFMessageComposeViewControllerDelegate {

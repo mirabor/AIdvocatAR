@@ -1,7 +1,7 @@
 # table of contents
 - [app demo](#App-Demo)
 - [notes for readability](#notes-for-readability)
-- [how to Run](#How-to-Run)
+- [how to run](#How-to-run)
 - [how it's written](#How-it's-written)
 
 
@@ -22,7 +22,7 @@
 - clone the repo
 - plug in and build 
 
-*might add backend  later but firebase is currently not implememented. don't do the below if not using firebase!*
+*might add backend  later but firebase is currently not implememented. don't do the below steps if not using firebase!*
 - go to the project directory
 - (if firebase used) run the following command to create podfile
 ```bash

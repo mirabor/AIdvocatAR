@@ -13,11 +13,11 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.ashk.AR-online-shopping-iOS</string>
+	<string>com.AIdvocatAR</string>
 	<key>PROJECT_ID</key>
-	<string>ar-online-shopping-ios</string>
+	<string>AIdvocatAR</string>
 	<key>STORAGE_BUCKET</key>
-	<string>ar-online-shopping-ios.appspot.com</string>
+	<string>AIdvocatAR.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>

@@ -14,8 +14,6 @@ struct ContentView: View {
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarHidden(true)
           .environmentObject(AppViewModel())
-        
-
           .phoneOnlyStackNavigationView()
     }
 }

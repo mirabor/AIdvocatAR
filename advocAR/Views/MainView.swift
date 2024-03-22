@@ -11,17 +11,17 @@ struct MainView: View {
         TabView {
             HomeScreen()
                 .tabItem {
-                    Label("Home", systemImage: "house.fill")
+                    Label("Browse", systemImage: "house.fill")
                 }
-            NewPostView()
+            EntryView()
                 .tabItem {
                     Label("Post", systemImage: "plus.square.fill")
                 }
             ARViewScreen()
                 .tabItem {
-                    Label("Your World", systemImage: "cube")
+                    Label("Reality", systemImage: "cube")
                 }
-            AboutUsView()
+            SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "gear.circle.fill")
                 }

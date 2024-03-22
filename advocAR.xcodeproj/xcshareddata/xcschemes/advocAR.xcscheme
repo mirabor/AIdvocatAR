@@ -89,6 +89,13 @@
             ReferencedContainer = "container:AR-online-shopping-iOS.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "CG_NUMERICS_SHOW_BACKTRACE"
+            value = "YES"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
