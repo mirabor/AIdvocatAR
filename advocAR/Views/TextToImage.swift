@@ -10,7 +10,7 @@ func performRequest() {
     let headers = [
       "accept": "application/json",
       "content-type": "application/json",
-      "Authorization": "f8ee38c2-12cb-4db9-901d-e67574b69441"
+      "Authorization": "\(Secrets.accessKey)"
     ]
     let parameters = [
       "messages": "Give me an image of a cute, phantom, cockapoo. Very cute, not too fluffy",

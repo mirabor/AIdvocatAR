@@ -45,7 +45,7 @@ class EntryViewModel: ObservableObject {
         }
     }
     
-    func performChatRequest(userInput: String, completion: @escaping () -> Void) {
+    func performChatRequest(userInput: String, completion: @escaping (Bool) -> Void) {
         isLoading = true
         let url = NSURL(string: "https://api.corcel.io/v1/text/cortext/chat")!
         print("Request URL: \(url)")
@@ -53,7 +53,7 @@ class EntryViewModel: ObservableObject {
         let headers = [
             "accept": "application/json",
             "content-type": "application/json",
-            "Authorization": "5ea51a3a-3f85-48dc-b053-a7ec0df70dca"
+            "Authorization": "\(Secrets.accessKey)"
         ]
         let parameters = [
             "model": "cortext-ultra",
@@ -92,13 +92,14 @@ class EntryViewModel: ObservableObject {
                 print("Network request error: \(error)")
                 DispatchQueue.main.async {
                     self.isLoading = false
-                    completion()
+                    completion(false)
                 }
                 return
             }
             
             guard let data = data, error == nil else {
                 print(error ?? "Data fetching error")
+                completion(false)
                 return
             }
             print(String(data: data, encoding: .utf8) ?? "Invalid JSON")
@@ -110,21 +111,25 @@ class EntryViewModel: ObservableObject {
                         if let contentData = choice.delta.content.data(using: .utf8) {
                             let content = try JSONDecoder().decode(Content.self, from: contentData)
                             
-                            print("Selected Names: \(content.selectedNames)")
-                            print("Explanation: \(content.explanation)")
+                            
                             DispatchQueue.main.async {
-                                completion()
+                                self.isLoading = false
+                                print("Selected Names: \(content.selectedNames)")
+                                print("Explanation: \(content.explanation)")
+                                self.selectedNames = content.selectedNames
+                                self.explanations = content.explanation
+                                completion(true)
                             }
                         }
                     }
                 }
             } catch {
                 print("Error decoding JSON: \(error)")
-            }
-            
+            completion(false)
             DispatchQueue.main.async {
-                completion()
+                self.isLoading = false
             }
+        }
         }
         dataTask.resume()
     }
@@ -135,6 +140,8 @@ class EntryViewModel: ObservableObject {
         @State private var showResults = false
         @StateObject private var viewModel = EntryViewModel()
         @State private var isRequestInProgress = false
+        @State private var showAlert = false
+        @State private var alertMessage = ""
         
         
         let indigoColor = UIColor(red: 45/255.0,
@@ -153,6 +160,7 @@ class EntryViewModel: ObservableObject {
                         Text("Generating...")
                                     .font(.largeTitle.bold())
                                     .foregroundColor(Color(red: 45/255.0, green: 80/255.0, blue: 207/255.0))
+                                    .padding()
                     }
                 } else {
                     TextField("Enter text here", text: $userInput)
@@ -165,9 +173,16 @@ class EntryViewModel: ObservableObject {
                     
                     Button(action: {
                         isRequestInProgress = true
-                        viewModel.performChatRequest(userInput: userInput) {
+                        viewModel.performChatRequest(userInput: userInput) { success in
                             isRequestInProgress = false
-                            showResults = true
+                            if success {
+                                showResults = true
+                                print("success")
+                            } else {
+                                print("failure")
+                                alertMessage = "Failed to fetch data. Please try again."
+                                showAlert = true
+                            }
                         }
                     }) {
                         Text("Submit")
@@ -179,7 +194,27 @@ class EntryViewModel: ObservableObject {
                     .disabled(isRequestInProgress)
                     .padding()
                     
+                    Button(action: {
+                        showResults = true // For testing direct navigation without data fetch
+                    }) {
+                        Text("Submit Test")
+                    }
+                    
                     NavigationLink(destination: ResultsView(viewModel: viewModel), isActive: $showResults) { EmptyView() }
+                    
+                    if showResults == true {
+                        Text(viewModel.selectedNames.joined(separator: "\n"))
+                        Text(viewModel.explanations.joined(separator: "\n"))
+                        if viewModel.explanations.indices.contains(0) {
+                            Text(viewModel.explanations[0])
+                        }
+                        if viewModel.explanations.indices.contains(1) {
+                            Text(viewModel.explanations[1])
+                        }
+                        if viewModel.explanations.indices.contains(2) {
+                            Text(viewModel.explanations[2])
+                        }
+                    }
                     
                     if !viewModel.jsonResponse.isEmpty {
                         Text(viewModel.jsonResponse)

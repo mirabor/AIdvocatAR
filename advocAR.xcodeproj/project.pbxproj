@@ -56,8 +56,14 @@
 		E06635272BAD0D6F003BB003 /* sneaker_pegasustrail.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E06635262BAD0D6E003BB003 /* sneaker_pegasustrail.usdz */; };
 		E06635292BAD68BE003BB003 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06635282BAD68BE003BB003 /* ResultsView.swift */; };
 		E066352B2BAD6AAD003BB003 /* robot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E066352A2BAD6AAD003BB003 /* robot.usdz */; };
-		E066352D2BADC24B003BB003 /* EntryViewCopy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E066352C2BADC24A003BB003 /* EntryViewCopy.swift */; };
 		E066352F2BADDC86003BB003 /* toy_drummer_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E066352E2BADDC86003BB003 /* toy_drummer_idle.usdz */; };
+		E06635312BADF3B0003BB003 /* .gitignore.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E06635302BADF3B0003BB003 /* .gitignore.rtf */; };
+		E06635342BADF580003BB003 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06635332BADF580003BB003 /* Secrets.swift */; };
+		E06635362BAE0813003BB003 /* fender_stratocaster.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E06635352BAE0813003BB003 /* fender_stratocaster.usdz */; };
+		E06635382BAE0969003BB003 /* chair.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E06635372BAE0969003BB003 /* chair.usdz */; };
+		E066353A2BAE131D003BB003 /* wateringcan.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E06635392BAE131D003BB003 /* wateringcan.usdz */; };
+		E066353C2BAE1347003BB003 /* gramophone.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E066353B2BAE1347003BB003 /* gramophone.usdz */; };
+		E066353E2BAE136B003BB003 /* toy_biplane_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E066353D2BAE136B003BB003 /* toy_biplane_idle.usdz */; };
 		E09EF0392BAB66560048E00B /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = E09EF0382BAB66560048E00B /* FocusEntity */; };
 /* End PBXBuildFile section */
 
@@ -154,20 +160,21 @@
 		E06634FF2BACD9F3003BB003 /* pancakes.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = pancakes.usdz; sourceTree = "<group>"; };
 		E06635072BACDA49003BB003 /* tv_retro.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = tv_retro.usdz; sourceTree = "<group>"; };
 		E06635132BAD0939003BB003 /* TextToImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToImage.swift; sourceTree = "<group>"; };
-		E06635152BAD0CB4003BB003 /* chair.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = chair.usdz; sourceTree = "<group>"; };
-		E06635172BAD0CB6003BB003 /* gramophone.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = gramophone.usdz; sourceTree = "<group>"; };
 		E06635182BAD0CB6003BB003 /* cup_saucer_set.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = cup_saucer_set.usdz; sourceTree = "<group>"; };
-		E06635192BAD0CB7003BB003 /* guitar.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = guitar.usdz; sourceTree = "<group>"; };
-		E066351E2BAD0CF5003BB003 /* toy_plane.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_plane.usdz; sourceTree = "<group>"; };
-		E066351F2BAD0CFB003BB003 /* watering_can.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = watering_can.usdz; sourceTree = "<group>"; };
 		E06635202BAD0D4A003BB003 /* flower_tulip.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = flower_tulip.usdz; sourceTree = "<group>"; };
 		E06635222BAD0D59003BB003 /* teapot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = teapot.usdz; sourceTree = "<group>"; };
 		E06635242BAD0D61003BB003 /* toy_car.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_car.usdz; sourceTree = "<group>"; };
 		E06635262BAD0D6E003BB003 /* sneaker_pegasustrail.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = sneaker_pegasustrail.usdz; sourceTree = "<group>"; };
 		E06635282BAD68BE003BB003 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 		E066352A2BAD6AAD003BB003 /* robot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = robot.usdz; sourceTree = "<group>"; };
-		E066352C2BADC24A003BB003 /* EntryViewCopy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewCopy.swift; sourceTree = "<group>"; };
 		E066352E2BADDC86003BB003 /* toy_drummer_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_drummer_idle.usdz; sourceTree = "<group>"; };
+		E06635302BADF3B0003BB003 /* .gitignore.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = .gitignore.rtf; sourceTree = "<group>"; };
+		E06635332BADF580003BB003 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		E06635352BAE0813003BB003 /* fender_stratocaster.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = fender_stratocaster.usdz; sourceTree = "<group>"; };
+		E06635372BAE0969003BB003 /* chair.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = chair.usdz; sourceTree = "<group>"; };
+		E06635392BAE131D003BB003 /* wateringcan.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = wateringcan.usdz; sourceTree = "<group>"; };
+		E066353B2BAE1347003BB003 /* gramophone.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = gramophone.usdz; path = ../../../../../Downloads/gramophone.usdz; sourceTree = "<group>"; };
+		E066353D2BAE136B003BB003 /* toy_biplane_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_biplane_idle.usdz; sourceTree = "<group>"; };
 		E09EF0192BAB509A0048E00B /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E09EF01B2BAB50C80048E00B /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E09EF01F2BAB50FF0048E00B /* FirebaseAppCheckInterop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAppCheckInterop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -251,7 +258,6 @@
 				534162D527EB9E3D0045338C /* SettingsView.swift */,
 				5335924F27EA45080046851F /* ARViewScreen.swift */,
 				534162CD27EB9A6F0045338C /* EntryView.swift */,
-				E066352C2BADC24A003BB003 /* EntryViewCopy.swift */,
 				E06635282BAD68BE003BB003 /* ResultsView.swift */,
 				E06635132BAD0939003BB003 /* TextToImage.swift */,
 				534162D127EB9A850045338C /* HomeScreen.swift */,
@@ -263,6 +269,7 @@
 		536BF1B427E6301F00F4E28B = {
 			isa = PBXGroup;
 			children = (
+				E06635302BADF3B0003BB003 /* .gitignore.rtf */,
 				536BF1BF27E6301F00F4E28B /* advocAR */,
 				536BF1D227E6302200F4E28B /* advocARTests */,
 				536BF1DC27E6302200F4E28B /* advocARUITests */,
@@ -289,6 +296,7 @@
 				534562B527F1FE5C008E1B5E /* GoogleService-Info.plist */,
 				536BF1C227E6301F00F4E28B /* ContentView.swift */,
 				536BF1C027E6301F00F4E28B /* AppDelegate.swift */,
+				E06635332BADF580003BB003 /* Secrets.swift */,
 				5335925727EA56CE0046851F /* Components */,
 				5335925427EA557E0046851F /* Models */,
 				536BF1EC27E6388200F4E28B /* Model-Images */,
@@ -329,15 +337,15 @@
 		536BF1EC27E6388200F4E28B /* Model-Images */ = {
 			isa = PBXGroup;
 			children = (
-				E06635152BAD0CB4003BB003 /* chair.usdz */,
 				E06635182BAD0CB6003BB003 /* cup_saucer_set.usdz */,
-				E066351F2BAD0CFB003BB003 /* watering_can.usdz */,
-				E06635172BAD0CB6003BB003 /* gramophone.usdz */,
-				E066351E2BAD0CF5003BB003 /* toy_plane.usdz */,
-				E06635192BAD0CB7003BB003 /* guitar.usdz */,
+				E06635372BAE0969003BB003 /* chair.usdz */,
 				E066352A2BAD6AAD003BB003 /* robot.usdz */,
+				E066353D2BAE136B003BB003 /* toy_biplane_idle.usdz */,
+				E06635352BAE0813003BB003 /* fender_stratocaster.usdz */,
 				E06635222BAD0D59003BB003 /* teapot.usdz */,
 				E06635202BAD0D4A003BB003 /* flower_tulip.usdz */,
+				E066353B2BAE1347003BB003 /* gramophone.usdz */,
+				E06635392BAE131D003BB003 /* wateringcan.usdz */,
 				E066352E2BADDC86003BB003 /* toy_drummer_idle.usdz */,
 				E06634FF2BACD9F3003BB003 /* pancakes.usdz */,
 				E06635262BAD0D6E003BB003 /* sneaker_pegasustrail.usdz */,
@@ -517,15 +525,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				536BF1CA27E6302200F4E28B /* Preview Assets.xcassets in Resources */,
+				E06635362BAE0813003BB003 /* fender_stratocaster.usdz in Resources */,
 				E066352B2BAD6AAD003BB003 /* robot.usdz in Resources */,
+				E066353C2BAE1347003BB003 /* gramophone.usdz in Resources */,
 				E066350F2BACDA49003BB003 /* tv_retro.usdz in Resources */,
 				536BF1C727E6302200F4E28B /* Assets.xcassets in Resources */,
 				E06635272BAD0D6F003BB003 /* sneaker_pegasustrail.usdz in Resources */,
 				E06635252BAD0D61003BB003 /* toy_car.usdz in Resources */,
 				E06635212BAD0D4A003BB003 /* flower_tulip.usdz in Resources */,
 				534562B627F1FE5C008E1B5E /* GoogleService-Info.plist in Resources */,
+				E066353A2BAE131D003BB003 /* wateringcan.usdz in Resources */,
+				E06635382BAE0969003BB003 /* chair.usdz in Resources */,
 				E06635002BACD9F3003BB003 /* pancakes.usdz in Resources */,
+				E066353E2BAE136B003BB003 /* toy_biplane_idle.usdz in Resources */,
 				E06635232BAD0D5A003BB003 /* teapot.usdz in Resources */,
+				E06635312BADF3B0003BB003 /* .gitignore.rtf in Resources */,
 				E066352F2BADDC86003BB003 /* toy_drummer_idle.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -663,10 +677,10 @@
 				53C5131F27E7BC6F0011930A /* FocusARView.swift in Sources */,
 				534562BB27F222BB008E1B5E /* UserAuthentication.swift in Sources */,
 				534162D627EB9E3D0045338C /* SettingsView.swift in Sources */,
+				E06635342BADF580003BB003 /* Secrets.swift in Sources */,
 				53C281A227E7987B00163FEB /* Model3D.swift in Sources */,
 				534562B927F1FE7E008E1B5E /* MainView.swift in Sources */,
 				534162D227EB9A850045338C /* HomeScreen.swift in Sources */,
-				E066352D2BADC24B003BB003 /* EntryViewCopy.swift in Sources */,
 				534162CF27EB9A6F0045338C /* EntryView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

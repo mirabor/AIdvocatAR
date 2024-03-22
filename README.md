@@ -14,6 +14,7 @@
 - future plans:
     - add sketchfab download api (https://sketchfab.com/developers/download-api) to access library of .usdz models and populate model picker view
     - add image to text recognition so users can point their camera at specific lines of text without copying/pasting from the site
+    - publish to App Store for user access 
 
 
 # how to run

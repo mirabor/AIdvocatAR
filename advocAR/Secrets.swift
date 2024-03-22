@@ -1,8 +1,3 @@
-//
-//  Secrets.swift
-//  advocAR
-//
-//  Created by Mira Yu on 3/22/24.
-//
-
-import Foundation
+struct Secrets {
+    static let accessKey = "5ea51a3a-3f85-48dc-b053-a7ec0df70dca"
+}
