@@ -2,6 +2,8 @@
 //  TextToImage.swift
 //  advocAR
 
+// potential usage: generate UIImage for USDZ images downloaded from Sketchfab?
+
 import Foundation
 
 func performRequest() {

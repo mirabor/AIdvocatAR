@@ -61,14 +61,14 @@ struct HomeScreen: View {
                     Button(action: {
                         self.showSafari = true
                     }) {
-                        CardView(title: "Browse", subtitle: "Click to browse our site, then select and copy lines from your favorite passage")
+                        CardView(title: "Browse", subtitle: "Click to browse our site, then select and copy lines from your favorite passage (max 4096 characters)")
                     }
                     .sheet(isPresented: $showSafari) {
                         SafariView(url: URL(string: self.urlString) ?? URL(string: "https://www.theharvardadvocate.com")!)
                     }
                     
-                    CardView(title: "Generate", subtitle: "Paste in the lines you'd highlight in a book and see what AI imagines for you")
-                    CardView(title: "Explore", subtitle: "Place 3 objects picked by AI based on your passage in the world around you with AR")
+                    CardView(title: "Generate", subtitle: "Paste the lines you'd highlight in a book and see what AI imagines for you")
+                    CardView(title: "Explore", subtitle: "Place objects picked by AI based on your passage in the world around you with AR")
                     CardView(title: "Let's go!")
                 }
                 .tabViewStyle(PageTabViewStyle())

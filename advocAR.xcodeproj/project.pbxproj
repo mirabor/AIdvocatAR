@@ -54,6 +54,8 @@
 		E06635232BAD0D5A003BB003 /* teapot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E06635222BAD0D59003BB003 /* teapot.usdz */; };
 		E06635252BAD0D61003BB003 /* toy_car.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E06635242BAD0D61003BB003 /* toy_car.usdz */; };
 		E06635272BAD0D6F003BB003 /* sneaker_pegasustrail.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E06635262BAD0D6E003BB003 /* sneaker_pegasustrail.usdz */; };
+		E06635292BAD68BE003BB003 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06635282BAD68BE003BB003 /* ResultsView.swift */; };
+		E066352B2BAD6AAD003BB003 /* robot.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E066352A2BAD6AAD003BB003 /* robot.usdz */; };
 		E09EF0392BAB66560048E00B /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = E09EF0382BAB66560048E00B /* FocusEntity */; };
 /* End PBXBuildFile section */
 
@@ -161,6 +163,8 @@
 		E06635222BAD0D59003BB003 /* teapot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = teapot.usdz; sourceTree = "<group>"; };
 		E06635242BAD0D61003BB003 /* toy_car.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_car.usdz; sourceTree = "<group>"; };
 		E06635262BAD0D6E003BB003 /* sneaker_pegasustrail.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = sneaker_pegasustrail.usdz; sourceTree = "<group>"; };
+		E06635282BAD68BE003BB003 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		E066352A2BAD6AAD003BB003 /* robot.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = robot.usdz; sourceTree = "<group>"; };
 		E09EF0192BAB509A0048E00B /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E09EF01B2BAB50C80048E00B /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E09EF01F2BAB50FF0048E00B /* FirebaseAppCheckInterop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseAppCheckInterop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,6 +248,7 @@
 				534162D527EB9E3D0045338C /* SettingsView.swift */,
 				5335924F27EA45080046851F /* ARViewScreen.swift */,
 				534162CD27EB9A6F0045338C /* EntryView.swift */,
+				E06635282BAD68BE003BB003 /* ResultsView.swift */,
 				E06635132BAD0939003BB003 /* TextToImage.swift */,
 				534162D127EB9A850045338C /* HomeScreen.swift */,
 				534562B827F1FE7E008E1B5E /* MainView.swift */,
@@ -326,6 +331,7 @@
 				E06635172BAD0CB6003BB003 /* gramophone.usdz */,
 				E066351E2BAD0CF5003BB003 /* toy_plane.usdz */,
 				E06635192BAD0CB7003BB003 /* guitar.usdz */,
+				E066352A2BAD6AAD003BB003 /* robot.usdz */,
 				E06635222BAD0D59003BB003 /* teapot.usdz */,
 				E06635202BAD0D4A003BB003 /* flower_tulip.usdz */,
 				E06634FF2BACD9F3003BB003 /* pancakes.usdz */,
@@ -507,6 +513,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				536BF1CA27E6302200F4E28B /* Preview Assets.xcassets in Resources */,
+				E066352B2BAD6AAD003BB003 /* robot.usdz in Resources */,
 				E066350F2BACDA49003BB003 /* tv_retro.usdz in Resources */,
 				536BF1C727E6302200F4E28B /* Assets.xcassets in Resources */,
 				E06635272BAD0D6F003BB003 /* sneaker_pegasustrail.usdz in Resources */,
@@ -644,6 +651,7 @@
 			files = (
 				5383D7A5280C955F009BF6DF /* ImagePicker.swift in Sources */,
 				536BF1C327E6301F00F4E28B /* ContentView.swift in Sources */,
+				E06635292BAD68BE003BB003 /* ResultsView.swift in Sources */,
 				E06635142BAD0939003BB003 /* TextToImage.swift in Sources */,
 				5335925027EA45080046851F /* ARViewScreen.swift in Sources */,
 				536BF1C127E6301F00F4E28B /* AppDelegate.swift in Sources */,
