@@ -1,12 +1,16 @@
 # table of contents
-- [app demo](#App-Demo)
+- [huh? what is AIdvocatAR?](#huh?-what-is-AIdvocatAR?)
+- [app demo](#app-demo)
 - [notes for readability](#notes-for-readability)
 - [how to run](#How-to-run)
 - [how it's written](#How-it's-written)
 
+# huh? what is AIdvocatAR?
+AIdvocatAR (AI + advocate + AR) is an iOS app that currently uses a text-to-chat LLM to select AR models based on lines of prose/poetry that the user selects from the harvard advocate website, which is accessible in-app.
 
 # app demo
-
+(i was in the middle of the woods during this demo so the models take a minute to load, but it should work normally provided you're in civiization)
+link to vid: https://drive.google.com/file/d/1enV_VjixWtJ7qvFkLogWlP97LUOyevoV/view?usp=sharing
 
 # notes for readability
 - i mainly use xcode's local git source control hence crazy commit history sorry
@@ -15,7 +19,7 @@
     - make ui look cooler
     - connect to sanity to display advo website directly so users can just click on an article to input text
     - add sketchfab download api (https://sketchfab.com/developers/download-api) to access library of .usdz models and populate model picker view
-    - use text to image api to generate uiimages for the .usdz models
+    - use text-to-image api to generate uiimages for the .usdz models
     - add image to text recognition so users can point their camera at specific lines of text without copying/pasting from the site
     - publish to App Store for user access 
 
