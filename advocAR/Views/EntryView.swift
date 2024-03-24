@@ -136,24 +136,31 @@ class EntryViewModel: ObservableObject {
     }
 }
     
-    struct EntryView: View {
-        @State private var userInput = ""
-        @State private var showResults = false
-        @EnvironmentObject var viewModel: EntryViewModel
-        @State private var isRequestInProgress = false
-        @State private var showAlert = false
-        @State private var alertMessage = ""
-        @State private var isBlurred1 = true
-        @State private var isBlurred2 = true
-        @State private var isBlurred3 = true
-        
-        
-        let indigoColor = UIColor(red: 45/255.0,
-                                  green: 80/255.0,
-                                  blue: 207/255.0,
-                                  alpha: 1)
-        
-        var body: some View {
+struct EntryView: View {
+    @State private var userInput = ""
+    @State private var showResults = false
+    @EnvironmentObject var viewModel: EntryViewModel
+    @State private var isRequestInProgress = false
+    @State private var showAlert = false
+    @State private var alertMessage = ""
+    @State private var isBlurred = [true, true, true]
+    @FocusState private var isTextFieldFocused: Bool
+    @FocusState private var isInputFocused: Bool
+    @State private var pulse = false
+    @State private var showAlertForTextLength = false
+
+    
+    let indigoColor = UIColor(red: 45/255.0,
+                              green: 80/255.0,
+                              blue: 207/255.0,
+                              alpha: 1)
+    
+    var body: some View {
+        ZStack {
+            LinearGradient(gradient: Gradient(colors: [Color.indigo.opacity(0.7), Color.blue.opacity(0.7)]), startPoint: .topLeading, endPoint: .bottomTrailing)
+                .edgesIgnoringSafeArea(.all)
+                .animation(Animation.easeInOut(duration: 5).repeatForever(autoreverses: true), value: UUID())
+            
             VStack {
                 if viewModel.isLoading {
                     VStack{
@@ -162,100 +169,140 @@ class EntryViewModel: ObservableObject {
                             .scaleEffect(2)
                             .padding(.top)
                         Text("Generating...")
-                                    .font(.largeTitle.bold())
-                                    .foregroundColor(Color(red: 45/255.0, green: 80/255.0, blue: 207/255.0))
-                                    .padding()
+                            .font(.largeTitle.bold())
+                            .foregroundColor(Color(red: 45/255.0, green: 80/255.0, blue: 207/255.0))
+                            .padding()
                     }
                 } else {
-                    TextField("Enter text here", text: $userInput)
-                        .textFieldStyle(RoundedBorderTextFieldStyle())
-                        .padding()
-                        .disabled(isRequestInProgress)
-                    
-                    Text("User input: \(userInput)")
-                        .padding()
-                    
-                    Button(action: {
-                        isRequestInProgress = true
-                        viewModel.performChatRequest(userInput: userInput) { success in
-                            isRequestInProgress = false
-                            if success {
-                                showResults = true
-                                print("success")
-                            } else {
-                                print("failure")
-                                alertMessage = "Failed to fetch data. Please try again."
-                                showAlert = true
-                            }
-                        }
-                    }) {
-                        Text("Submit")
-                            .foregroundColor(.white)
-                            .padding()
-                            .background(Color(indigoColor))
-                            .cornerRadius(10)
-                    }
-                    .disabled(isRequestInProgress)
-                    .padding()
-                    
                     if showResults == true {
-                        ScrollView{
-                            //          Text(viewModel.selectedNames.joined(separator: "\n"))
-                            if viewModel.explanations.indices.contains(0) {
-                                Text(viewModel.explanations[0])
-                                    .blur(radius: isBlurred1 ? 10 : 0)
-                                    .animation(.easeInOut, value: isBlurred1)
+                        ScrollView {
+                            VStack(spacing: 10) {
+                                Text("**AI**dvocat**AR**")
                                     .padding()
-                                    .onTapGesture {
-                                        withAnimation {
-                                            isBlurred1.toggle()
-                                        }
-                                    }
+                                    
+                                ForEach(viewModel.explanations.indices, id: \.self) { index in
+                                    ExplanationBubble(text: viewModel.explanations[index], isBlurred: $isBlurred[index])
+                                }
                             }
-                            if viewModel.explanations.indices.contains(1) {
-                                Text(viewModel.explanations[1])
-                                    .blur(radius: isBlurred2 ? 10 : 0)
-                                    .animation(.easeInOut, value: isBlurred2)
-                                    .padding()
-                                    .onTapGesture {
-                                        withAnimation {
-                                            isBlurred2.toggle()
-                                        }
-                                    }
-                            }
-                            if viewModel.explanations.indices.contains(2) {
-                                Text(viewModel.explanations[2])
-                                    .blur(radius: isBlurred3 ? 10 : 0)
-                                    .animation(.easeInOut, value: isBlurred3)
-                                    .padding()
-                                    .onTapGesture {
-                                        withAnimation {
-                                            isBlurred3.toggle()
-                                        }
-                                    }
-                            }
+                            .padding(.vertical, 10)
                         }
+                        .background(Color.secondary.opacity(0.1))
+                        .cornerRadius(15)
+                        .padding()
+                        .shadow(radius: 5)
+                        .frame(maxWidth: .infinity)
+                        
                     } else {
-                        Text("Submit text to generate custom objects")
+                        Text("**AIdvocatAR**")
+                            .padding()
+                        Text("_Submit text to generate a set of 3 custom objects_")
                             .padding()
                             .opacity(0.75)
                     }
-                    
-                    if !viewModel.jsonResponse.isEmpty {
-                        Text(viewModel.jsonResponse)
-                            .padding()
-                    }
-                    
                     Spacer()
+                    Button(action: {
+                        if userInput.count > 4096 {
+                            showAlertForTextLength = true
+                        } else {
+                        isRequestInProgress = true
+                            viewModel.performChatRequest(userInput: userInput) { success in
+                                isRequestInProgress = false
+                                if success {
+                                    showResults = true
+                                    print("success")
+                                } else {
+                                    print("failure")
+                                    alertMessage = "Failed to fetch data. Please try again."
+                                    showAlert = true
+                                }
+                            }
+                        }
+                    }) {
+                        Text("Generate")
+                            .foregroundColor(.white)
+                            .padding()
+                            .background(userInput.count > 6 ? Color(indigoColor) : Color.gray)
+                            .cornerRadius(10)
+                    }
+                    .disabled(isRequestInProgress || userInput.count <= 6 || userInput.count > 4096)
+                    .padding()
+                    .scaleEffect(pulse ? 1.1 : 1)
+                    .animation(.easeOut(duration: 0.8).repeatForever(autoreverses: true), value: pulse)
+                                           .alert(isPresented: $showAlertForTextLength) {
+                                               Alert(
+                                                   title: Text("Text Too Long"),
+                                                   message: Text("Please shorten your text to be less than 4096 characters."),
+                                                   dismissButton: .default(Text("OK"))
+                                               )
+                                           }
+               
+                    
+                }
+                    TextField("Enter text here", text: $userInput)
+                        .padding()
+                        .disabled(isRequestInProgress)
+                         .background(Color(indigoColor).opacity(0.2))
+                         .cornerRadius(10)
+                         .padding(.horizontal)
+                         .foregroundColor(.white)
+                         .scaleEffect(pulse ? 1.05 : 1)
+                         .animation(.easeOut(duration: 0.8).repeatForever(autoreverses: true), value: pulse)
+                                                .focused($isTextFieldFocused)
+                                                .onChange(of: isTextFieldFocused) { focused in
+                                                    if focused {
+                                                        pulse = true
+                                                    } else {
+                                                        pulse = false
+                                                    }
+                                                }
+                                                .onTapGesture {
+                                                    isTextFieldFocused = true
+                                                }
+                    
+//                    if !viewModel.jsonResponse.isEmpty {
+//                        Text(viewModel.jsonResponse)
+//                            .padding()
+//                    }
+                    
                 }
             }
-            .background(Color(.systemBackground))
-            .cornerRadius(7)
+       //     .background(Color(.systemBackground))
+//            .cornerRadius(7)
             .padding()
             .navigationBarTitle("Enter Text", displayMode: .inline)
+            .alert(isPresented: $showAlert) {
+                Alert(title: Text("Error"), message: Text(alertMessage), dismissButton: .default(Text("OK")))
+            }
         }
     }
+
+
+struct ExplanationBubble: View {
+    let text: String
+    @Binding var isBlurred: Bool
+    let indigoColor = UIColor(red: 45/255.0,
+                              green: 80/255.0,
+                              blue: 207/255.0,
+                              alpha: 1)
     
+    var body: some View {
+        Text(text)
+            .padding()
+            .background(Color(indigoColor))
+            .foregroundColor(.white)
+            .cornerRadius(20)
+            .frame(maxWidth: 300, alignment: .leading)
+            .blur(radius: isBlurred ? 10 : 0)
+            .onTapGesture {
+                withAnimation {
+                    isBlurred.toggle()
+                }
+            }
+            .padding(.leading, 15)
+    }
+}
+
+
     struct EntryViewPreview: PreviewProvider  {
         
         static var previews: some View {
