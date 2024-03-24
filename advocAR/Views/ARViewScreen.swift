@@ -12,39 +12,62 @@ struct ARViewScreen : View {
     @State private var selectedModelImage: Model3D?
     @State private var modelImageConfirmedForPlacement: Model3D?
     
-    var modelImages: [Model3D] = {
-       // Dynamically get our modelImage file name
-        let fileManager = FileManager.default
-        
-        guard let path = Bundle.main.resourcePath, let files = try? fileManager.contentsOfDirectory(atPath: path) else {
-                return []
-        }
-        
-        var availableModelImages: [Model3D] = []
-        for filename in files where filename.hasSuffix("usdz") {
-            let modelImageName = filename.replacingOccurrences(of: ".usdz", with: "")
-            let model3D = Model3D(model3DName: modelImageName)
-            availableModelImages.append(model3D)
-        }
-        
-        return availableModelImages
-    }()
+    @EnvironmentObject var viewModel: EntryViewModel
+    @State var modelImages: [Model3D] = []
+    
+
     
     var body: some View {
 //        NavigationView {
         ZStack(alignment: .bottom) {
+            
             ARViewContainer(modelImageConfirmedForPlacement: self.$modelImageConfirmedForPlacement)
             
             if self.isPlacementEnabled {
                 PlacementButtonsView(isPlacementEnabled: self.$isPlacementEnabled, selectedModelImage: $selectedModelImage, modelImageConfirmedForPlacement: self.$modelImageConfirmedForPlacement)
             } else {
-                /* Passing $ sign because isPlacementEnable is binding var (has its source of truth outside the model picker view (in this case it's in main content view))
-                 Add $ to get read/write access to the var instead of just read access */
-                ModelPickerView(isPlacementEnabled: self.$isPlacementEnabled, selectedModelImage: self.$selectedModelImage, modelImages: self.modelImages)
+                // Check if selectedNames is empty and display instructions accordingly
+                if viewModel.selectedNames.isEmpty {
+                    Text("No objects selected. Please go to the Generate page to get objects.")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.gray)
+                        .cornerRadius(10)
+                } else {
+                    ModelPickerView(isPlacementEnabled: self.$isPlacementEnabled, selectedModelImage: self.$selectedModelImage, modelImages: self.modelImages)
+                }
             }
         }
+        .onAppear {
+            DispatchQueue.main.async {
+                populateModelImages()
+            }
+        }
+        .onReceive(viewModel.$selectedNames) { newValue in
+            print("selectedNames changed to: \(newValue)")
+            populateModelImages()
+        }
     }
-//    }
+    
+    private func populateModelImages() {
+           let fileManager = FileManager.default
+        print("Failed to get resource path.")
+           guard let path = Bundle.main.resourcePath, let files = try? fileManager.contentsOfDirectory(atPath: path) else {
+               print("Failed to get contents of directory at path.")
+               return
+           }
+        print("Files in bundle: \(files)")
+           
+           modelImages = files.filter { filename in
+               filename.hasSuffix("usdz") && viewModel.selectedNames.contains(filename)
+           }.map { filename in
+               let modelImageName = filename.replacingOccurrences(of: ".usdz", with: "")
+               print("Populated modelImages: \(modelImages.map { $0.model3DName })")
+               return Model3D(model3DName: modelImageName)
+           }
+        print("Populated modelImages: \(modelImages.map { $0.model3DName })")
+       }
+    
 }
     
 
@@ -97,15 +120,16 @@ struct ModelPickerView: View {
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: 30) {
-                ForEach(0 ..< self.modelImages.count) { index in
+                
+                ForEach(modelImages, id: \.id) { modelImage in
                     Button(action: {
-                        print("DEBUG: selected model with name: \(self.modelImages[index].model3DName)")
+                        print("DEBUG: selected model with name: \(modelImage.model3DName)")
                         
-                        self.selectedModelImage = self.modelImages[index]
+                        self.selectedModelImage = modelImage
                         
                         self.isPlacementEnabled = true
                     }) {
-                        Image(uiImage: self.modelImages[index].image!)
+                        Image(uiImage: modelImage.image!)
                             .resizable()
                             .frame(height: 80)
                             .aspectRatio(1/1, contentMode: .fit)
@@ -116,8 +140,11 @@ struct ModelPickerView: View {
                 }
             }
         }
-    .padding(20)
-    .background(Color.black.opacity(0.5))
+        .padding(20)
+        .background(Color.black.opacity(0.5))
+        .onAppear {
+            print("ModelPickerView appeared with modelImages count: \(modelImages.count)")
+        }
     }
 }
 
@@ -165,11 +192,3 @@ struct PlacementButtonsView: View {
         self.selectedModelImage = nil
     }
 }
-
-//#if DEBUG
-//struct ARViewScreen_Previews : PreviewProvider {
-//    static var previews: some View {
-//        ARViewScreen()
-//    }
-//}
-//#endif

@@ -3,27 +3,15 @@
 
 import SwiftUI
 import MessageUI
-import FirebaseAuth
+//import FirebaseAuth
 
 /// Main View
 struct SettingsView: View {
-
-    /// The delegate required by `MFMailComposeViewController`
-    private let mailComposeDelegate = MailDelegate()
-
-    /// The delegate required by `MFMessageComposeViewController`
-    private let messageComposeDelegate = MessageDelegate()
-
     
-    @EnvironmentObject var viewModel: AppViewModel
-    
-    let auth = Auth.auth()
-    
-    func signOut() {
-        try? auth.signOut()
-        
-        viewModel.signedIn = false
-    }
+    let indigoColor = UIColor(red: 45/255.0,
+                               green: 80/255.0,
+                               blue: 207/255.0,
+                               alpha: 1)
 
     var body: some View {
         ScrollView{
@@ -34,11 +22,11 @@ struct SettingsView: View {
         
             Spacer()
             HStack{
-            Text("About Us")
+            Text("About")
                     .font(.title)
                     .fontWeight(.bold)
                     .frame(width: 300)
-                    .foregroundColor(Color(.orange))
+                    .foregroundColor(Color(indigoColor))
             }
                 .padding()
 
@@ -52,7 +40,7 @@ struct SettingsView: View {
                     .font(.title)
                     .fontWeight(.bold)
                     .frame(width: 300)
-                    .foregroundColor(Color(.orange))
+                    .foregroundColor(Color(indigoColor))
             }
                 .padding()
             
@@ -144,7 +132,7 @@ struct SettingsView: View {
                     .frame(width: 45, height: 35)
                     .foregroundColor(Color(.lightGray))
                     .onTapGesture{
-                        self.presentMailCompose()
+                   
                     }
                 
                 Spacer()
@@ -156,7 +144,7 @@ struct SettingsView: View {
                     .frame(width: 45, height: 45)
                     .foregroundColor(Color(.lightGray))
                     .onTapGesture{
-                        self.presentMessageCompose()
+                        
                     }
                 Spacer()
             }
@@ -228,16 +216,7 @@ struct SettingsView: View {
                             .foregroundColor(Color(.orange))
                             .padding()
                 }
-                
-//                Button(action: {
-//                    viewModel.signOut()
-//                }, label: {
-//                    Text("Sign Out")
-//                        .frame(width: 300, height: 40)
-//                        .foregroundColor(.black)
-//                        .background(.orange)
-//                        .cornerRadius(15)
-//                })
+            
             }
             Spacer()
     }
@@ -245,59 +224,11 @@ struct SettingsView: View {
     }
 }
 
-// MARK: The mail part
-extension SettingsView {
-
-    /// Delegate for view controller as `MFMailComposeViewControllerDelegate`
-    private class MailDelegate: NSObject, MFMailComposeViewControllerDelegate {
-
-        func mailComposeController(_ controller: MFMailComposeViewController,
-                                   didFinishWith result: MFMailComposeResult,
-                                   error: Error?) {
-
-            controller.dismiss(animated: true)
-        }
-
+struct SettingsViewPreview: PreviewProvider  {
+    
+    static var previews: some View {
+        SettingsView()
+            .preferredColorScheme(.dark)
     }
-
-    /// Present an mail compose view controller modally in UIKit environment
-    private func presentMailCompose() {
-        guard MFMailComposeViewController.canSendMail() else {
-            return
-        }
-        let vc = UIApplication.shared.keyWindow?.rootViewController
-
-        let composeVC = MFMailComposeViewController()
-        composeVC.mailComposeDelegate = mailComposeDelegate
-
-
-        vc?.present(composeVC, animated: true)
-    }
-}
-
-// MARK: The message part
-extension SettingsView {
-
-    /// Delegate for view controller as `MFMessageComposeViewControllerDelegate`
-    private class MessageDelegate: NSObject, MFMessageComposeViewControllerDelegate {
-        func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
-            // Customize here
-            controller.dismiss(animated: true)
-        }
-
-    }
-
-    /// Present an message compose view controller modally in UIKit environment
-    private func presentMessageCompose() {
-        guard MFMessageComposeViewController.canSendText() else {
-            return
-        }
-        let vc = UIApplication.shared.keyWindow?.rootViewController
-
-        let composeVC = MFMessageComposeViewController()
-        composeVC.messageComposeDelegate = messageComposeDelegate
-
-
-        vc?.present(composeVC, animated: true)
-    }
+    
 }

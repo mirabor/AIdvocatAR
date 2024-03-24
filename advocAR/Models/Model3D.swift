@@ -10,16 +10,17 @@ class Model3D: Identifiable {
     private var cancellables = Set<AnyCancellable>()
 
     init(model3DName: String) {
-        self.model3DName = model3DName
-
-        // Attempt to load the image
-        if let loadedImage = UIImage(named: model3DName) {
-            self.image = loadedImage
-            print("DEBUG: Successfully loaded image for modelName: \(model3DName)")
-        } else {
-            // Log failure if the image doesn't exist
-            print("ERROR: Unable to load image for modelName: \(model3DName)")
-        }
+            self.model3DName = model3DName
+            
+            // Attempt to load the image
+            if let loadedImage = UIImage(named: model3DName) {
+                self.image = loadedImage
+                print("DEBUG: Successfully loaded image for modelName: \(model3DName)")
+            } else {
+                // Log failure if the image doesn't exist
+                print("ERROR: Unable to load image for modelName: \(model3DName)")
+            }
+        
 
         // Load the model entity asynchronously
         ModelEntity.loadModelAsync(named: model3DName + ".usdz")
@@ -33,8 +34,10 @@ class Model3D: Identifiable {
                     print("ERROR: Unable to load model3DEntity for modelName: \(model3DName), error: \(error)")
                 }
             }, receiveValue: { [weak self] modelEntity in
-                self?.model3DEntity = modelEntity
-                print("DEBUG: Successfully loaded modelEntity for modelName: \(model3DName)")
+                DispatchQueue.main.async {
+                    self?.model3DEntity = modelEntity
+                    print("DEBUG: Successfully loaded modelEntity for modelName: \(model3DName)")
+                }
             }).store(in: &cancellables)
     }
 }

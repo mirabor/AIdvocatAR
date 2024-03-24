@@ -76,7 +76,7 @@ class EntryViewModel: ObservableObject {
         
         let request = NSMutableURLRequest(url: url as URL,
                                           cachePolicy: .useProtocolCachePolicy,
-                                          timeoutInterval: 10.0)
+                                          timeoutInterval: 15.0)
         request.httpMethod = "POST"
         request.allHTTPHeaderFields = headers
         request.httpBody = postData
@@ -114,6 +114,7 @@ class EntryViewModel: ObservableObject {
                             
                             DispatchQueue.main.async {
                                 self.isLoading = false
+                                self.objectWillChange.send()
                                 print("Selected Names: \(content.selectedNames)")
                                 print("Explanation: \(content.explanation)")
                                 self.selectedNames = content.selectedNames
@@ -138,10 +139,13 @@ class EntryViewModel: ObservableObject {
     struct EntryView: View {
         @State private var userInput = ""
         @State private var showResults = false
-        @StateObject private var viewModel = EntryViewModel()
+        @EnvironmentObject var viewModel: EntryViewModel
         @State private var isRequestInProgress = false
         @State private var showAlert = false
         @State private var alertMessage = ""
+        @State private var isBlurred1 = true
+        @State private var isBlurred2 = true
+        @State private var isBlurred3 = true
         
         
         let indigoColor = UIColor(red: 45/255.0,
@@ -194,26 +198,47 @@ class EntryViewModel: ObservableObject {
                     .disabled(isRequestInProgress)
                     .padding()
                     
-                    Button(action: {
-                        showResults = true // For testing direct navigation without data fetch
-                    }) {
-                        Text("Submit Test")
-                    }
-                    
-                    NavigationLink(destination: ResultsView(viewModel: viewModel), isActive: $showResults) { EmptyView() }
-                    
                     if showResults == true {
-                        Text(viewModel.selectedNames.joined(separator: "\n"))
-                        Text(viewModel.explanations.joined(separator: "\n"))
-                        if viewModel.explanations.indices.contains(0) {
-                            Text(viewModel.explanations[0])
+                        ScrollView{
+                            //          Text(viewModel.selectedNames.joined(separator: "\n"))
+                            if viewModel.explanations.indices.contains(0) {
+                                Text(viewModel.explanations[0])
+                                    .blur(radius: isBlurred1 ? 10 : 0)
+                                    .animation(.easeInOut, value: isBlurred1)
+                                    .padding()
+                                    .onTapGesture {
+                                        withAnimation {
+                                            isBlurred1.toggle()
+                                        }
+                                    }
+                            }
+                            if viewModel.explanations.indices.contains(1) {
+                                Text(viewModel.explanations[1])
+                                    .blur(radius: isBlurred2 ? 10 : 0)
+                                    .animation(.easeInOut, value: isBlurred2)
+                                    .padding()
+                                    .onTapGesture {
+                                        withAnimation {
+                                            isBlurred2.toggle()
+                                        }
+                                    }
+                            }
+                            if viewModel.explanations.indices.contains(2) {
+                                Text(viewModel.explanations[2])
+                                    .blur(radius: isBlurred3 ? 10 : 0)
+                                    .animation(.easeInOut, value: isBlurred3)
+                                    .padding()
+                                    .onTapGesture {
+                                        withAnimation {
+                                            isBlurred3.toggle()
+                                        }
+                                    }
+                            }
                         }
-                        if viewModel.explanations.indices.contains(1) {
-                            Text(viewModel.explanations[1])
-                        }
-                        if viewModel.explanations.indices.contains(2) {
-                            Text(viewModel.explanations[2])
-                        }
+                    } else {
+                        Text("Submit text to generate custom objects")
+                            .padding()
+                            .opacity(0.75)
                     }
                     
                     if !viewModel.jsonResponse.isEmpty {

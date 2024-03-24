@@ -6,6 +6,7 @@ import SwiftUI
 struct MainView: View {
 
     @State private var selectedTab = "Home"
+    @StateObject private var viewModel = EntryViewModel()
 
     var body: some View {
         TabView {
@@ -15,17 +16,19 @@ struct MainView: View {
                 }
             EntryView()
                 .tabItem {
-                    Label("Post", systemImage: "plus.square.fill")
+                    Label("Generate", systemImage: "plus.square.fill")
                 }
             ARViewScreen()
                 .tabItem {
                     Label("Reality", systemImage: "cube")
                 }
+        //        .environmentObject(viewModel)
             SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "gear.circle.fill")
                 }
         }
+        .environmentObject(viewModel)
     }
     
 }

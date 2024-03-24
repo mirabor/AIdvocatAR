@@ -9,11 +9,9 @@ import MessageUI
 struct ContentView: View {
 
     var body: some View {
-    //    UserAuthentication()
         MainView()
             .navigationBarTitle("", displayMode: .inline)
             .navigationBarHidden(true)
-          .environmentObject(AppViewModel())
           .phoneOnlyStackNavigationView()
     }
 }
@@ -33,7 +31,6 @@ struct Content_Previews: PreviewProvider  {
     static var previews: some View {
         ContentView()
             .preferredColorScheme(.dark)
-            .environmentObject(AppViewModel())
     }
     
 }
