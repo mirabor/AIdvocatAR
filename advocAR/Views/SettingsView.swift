@@ -1,234 +1,64 @@
 //
-//  MailView.swift
 
 import SwiftUI
 import MessageUI
 //import FirebaseAuth
+import SafariServices
 
 /// Main View
 struct SettingsView: View {
     
+    @State var showLink = false
+    @State var link = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    
     let indigoColor = UIColor(red: 45/255.0,
-                               green: 80/255.0,
-                               blue: 207/255.0,
-                               alpha: 1)
-
+                              green: 80/255.0,
+                              blue: 207/255.0,
+                              alpha: 1)
+    
     var body: some View {
-        ScrollView{
-
-
-            ZStack{
-        VStack {
         
-            Spacer()
-            HStack{
-            Text("About")
+        ZStack{
+            VStack {
+                    Text("About")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .frame(width: 300)
+                        .foregroundColor(Color(indigoColor))
+                        .padding()
+                
+                    Text("This app was built using SwiftUI, ARKit, RealityKit, FocusEntity, and the Corcel API. Thank you to the Corcel developer team for providing upgraded key access free of charge!")
+                        .padding()
+                
+                Text("Help")
                     .font(.title)
                     .fontWeight(.bold)
                     .frame(width: 300)
                     .foregroundColor(Color(indigoColor))
-            }
-                .padding()
-
-            HStack{
-            Text("hi")
                     .padding()
-            }
-            
-            HStack{
-            Text("Help")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .frame(width: 300)
-                    .foregroundColor(Color(indigoColor))
-            }
-                .padding()
-            
-            
-            VStack{
-                HStack{
-                    Text("Home Screen")
-                            .fontWeight(.bold)
-                            .padding()
-                    Spacer()
-                }
-
-                HStack{
-                    Text("Hi.")
-                            .padding()
-                    Spacer()
-                }
-                
-                HStack{
-                    Text("Products Screen")
-                            .fontWeight(.bold)
-                            .padding()
-                    Spacer()
-                }
-
-                HStack{
-            Text("HI.")
-                    .padding()
-                    Spacer()
-                }
-                
-                HStack{
-                    Text("Post Screen")
-                            .fontWeight(.bold)
-                            .padding()
-                    Spacer()
-                }
-
-                
-                HStack{
-            Text("Heyy.")
-                    .padding()
-                    Spacer()
-                }
-
-                
-                HStack{
-                    Text("Reality Screen")
-                            .fontWeight(.bold)
-                            .padding()
-                    Spacer()
-                }
-
-                HStack{
-            Text("hi.")
-                    .padding()
-                    Spacer()
-                }
-                
-                HStack{
-                    Text("Setting Screen")
-                            .fontWeight(.bold)
-                            .padding()
-                    Spacer()
-                }
-
-                HStack{
-            Text("hi.")
-                    .padding()
-                    Spacer()
-                }
-
-            }
-
-            
-            HStack{
-                Text("Contact Us")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .frame(width: 300)
-                        .foregroundColor(Color(.orange))
-                        .padding()
-            }
-            HStack {
-                Spacer()
-                Image(systemName: "envelope")
-
-                    .resizable()
-                    .frame(width: 45, height: 35)
-                    .foregroundColor(Color(.lightGray))
-                    .onTapGesture{
-                   
-                    }
-                
-                Spacer()
-
-
-                Image(systemName: "message")
-
-                    .resizable()
-                    .frame(width: 45, height: 45)
-                    .foregroundColor(Color(.lightGray))
-                    .onTapGesture{
-                        
-                    }
-                Spacer()
-            }
-            .padding()
-            
-            Spacer()
-            
-            
-            HStack{
-                Text("Follow Us")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .frame(width: 300)
-                        .foregroundColor(Color(.orange))
-                        .padding()
-            }
-            
-            HStack{
-                Spacer()
                 Button(action: {
-                    guard let url = URL(string: "") else {
-                      return
-                    }
-
-                    if #available(iOS 10.0, *) {
-                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                    } else {
-                        UIApplication.shared.openURL(url)
-                    }
+                    self.showLink = true
                 }) {
-                    Image("InstagramIcon")
-
-                        .resizable()
-                        .frame(width: 45, height: 45)
-                }
-                Spacer()
-                Button(action: {
-                    guard let url = URL(string: "") else {
-                      return //be safe
-                    }
-
-                    if #available(iOS 10.0, *) {
-                        UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                    } else {
-                        UIApplication.shared.openURL(url)
-                    }
-                }) {
-                    Image("")
-
-                        .resizable()
-                        .frame(width: 45, height: 45)
-                        .foregroundColor(Color(.orange))
+                    Text("If you encounter any issues or have suggestions for features, please reach out to mirayu@college.harvard.edu. This repo can be found at https://github.com/mirabor/AIdvocatAR, and pull requests are welcome.")
+                        .foregroundColor(.primary)
+                        .padding(.bottom)
+                        .padding(.horizontal)
+                }.sheet(isPresented: $showLink) {
+                    SafariView(url: URL(string: self.link) ?? URL(string: "https://github.com/mirabor/AIdvocatAR")!)
                 }
                 Spacer()
             }
-            .padding()
-
         }
     }
-            Spacer()
-            Spacer()
-            VStack {
-                
-                HStack{
-                    Text("Sign Out")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .frame(width: 300)
-                            .foregroundColor(Color(.orange))
-                            .padding()
-                }
-            
-            }
-            Spacer()
-    }
-        
-    }
 }
+            
+            
 
 struct SettingsViewPreview: PreviewProvider  {
     
     static var previews: some View {
         SettingsView()
-            .preferredColorScheme(.dark)
+            .preferredColorScheme(.light)
     }
     
 }

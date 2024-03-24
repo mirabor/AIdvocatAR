@@ -160,6 +160,7 @@ struct EntryView: View {
             LinearGradient(gradient: Gradient(colors: [Color.indigo.opacity(0.7), Color.blue.opacity(0.7)]), startPoint: .topLeading, endPoint: .bottomTrailing)
                 .edgesIgnoringSafeArea(.all)
                 .animation(Animation.easeInOut(duration: 5).repeatForever(autoreverses: true), value: UUID())
+          //      .cornerRadius(15)
             
             VStack {
                 if viewModel.isLoading {
@@ -170,7 +171,8 @@ struct EntryView: View {
                             .padding(.top)
                         Text("Generating...")
                             .font(.largeTitle.bold())
-                            .foregroundColor(Color(red: 45/255.0, green: 80/255.0, blue: 207/255.0))
+                    //        .foregroundColor(Color(red: 45/255.0, green: 80/255.0, blue: 207/255.0))
+                            .foregroundColor(.white)
                             .padding()
                     }
                 } else {
@@ -186,7 +188,7 @@ struct EntryView: View {
                             }
                             .padding(.vertical, 10)
                         }
-                        .background(Color.secondary.opacity(0.1))
+              //          .background(Color.secondary.opacity(0.1))
                         .cornerRadius(15)
                         .padding()
                         .shadow(radius: 5)
@@ -195,9 +197,11 @@ struct EntryView: View {
                     } else {
                         Text("**AIdvocatAR**")
                             .padding()
+                            .font(.title)
                         Text("_Submit text to generate a set of 3 custom objects_")
                             .padding()
                             .opacity(0.75)
+                            .multilineTextAlignment(.center)
                     }
                     Spacer()
                     Button(action: {
@@ -267,7 +271,7 @@ struct EntryView: View {
                 }
             }
        //     .background(Color(.systemBackground))
-//            .cornerRadius(7)
+          .cornerRadius(7)
             .padding()
             .navigationBarTitle("Enter Text", displayMode: .inline)
             .alert(isPresented: $showAlert) {

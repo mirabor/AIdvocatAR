@@ -12,7 +12,10 @@
 - i mainly use xcode's local git source control hence crazy commit history sorry
 - started adding firebase but decided not to as of rn
 - future plans:
+    - make ui look cooler
+    - connect to sanity to display advo website directly so users can just click on an article to input text
     - add sketchfab download api (https://sketchfab.com/developers/download-api) to access library of .usdz models and populate model picker view
+    - use text to image api to generate uiimages for the .usdz models
     - add image to text recognition so users can point their camera at specific lines of text without copying/pasting from the site
     - publish to App Store for user access 
 
@@ -83,6 +86,6 @@ pod install
 
 
 # how it's written
-swiftui, arkit, focusentity, realitykit, safariservices
+swiftui, arkit, focusentity, realitykit, safariservices, corcel api (shoutout mog!)
 
 
