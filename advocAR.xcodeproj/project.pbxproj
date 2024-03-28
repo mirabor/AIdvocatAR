@@ -46,6 +46,7 @@
 		E00F46652BAB2F3200086937 /* FirebaseSharedSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E00F46522BAB2F3000086937 /* FirebaseSharedSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E00F46662BAB2F3200086937 /* FirebaseStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E00F46532BAB2F3000086937 /* FirebaseStorage.framework */; };
 		E00F46672BAB2F3200086937 /* FirebaseStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E00F46532BAB2F3000086937 /* FirebaseStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E02355812BB508AE0049A293 /* gramophone.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E02355802BB508AE0049A293 /* gramophone.usdz */; };
 		E06635002BACD9F3003BB003 /* pancakes.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E06634FF2BACD9F3003BB003 /* pancakes.usdz */; };
 		E066350F2BACDA49003BB003 /* tv_retro.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E06635072BACDA49003BB003 /* tv_retro.usdz */; };
 		E06635142BAD0939003BB003 /* TextToImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E06635132BAD0939003BB003 /* TextToImage.swift */; };
@@ -61,7 +62,6 @@
 		E06635362BAE0813003BB003 /* fender_stratocaster.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E06635352BAE0813003BB003 /* fender_stratocaster.usdz */; };
 		E06635382BAE0969003BB003 /* chair.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E06635372BAE0969003BB003 /* chair.usdz */; };
 		E066353A2BAE131D003BB003 /* wateringcan.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E06635392BAE131D003BB003 /* wateringcan.usdz */; };
-		E066353C2BAE1347003BB003 /* gramophone.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E066353B2BAE1347003BB003 /* gramophone.usdz */; };
 		E066353E2BAE136B003BB003 /* toy_biplane_idle.usdz in Resources */ = {isa = PBXBuildFile; fileRef = E066353D2BAE136B003BB003 /* toy_biplane_idle.usdz */; };
 		E09EF0392BAB66560048E00B /* FocusEntity in Frameworks */ = {isa = PBXBuildFile; productRef = E09EF0382BAB66560048E00B /* FocusEntity */; };
 /* End PBXBuildFile section */
@@ -155,6 +155,7 @@
 		E00F46772BAB483C00086937 /* FirebaseFirestoreInternal.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestoreInternal.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E00F46792BAB483C00086937 /* FirebaseSharedSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseSharedSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E00F467B2BAB483C00086937 /* FirebaseStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E02355802BB508AE0049A293 /* gramophone.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = gramophone.usdz; sourceTree = "<group>"; };
 		E06634FF2BACD9F3003BB003 /* pancakes.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = pancakes.usdz; sourceTree = "<group>"; };
 		E06635072BACDA49003BB003 /* tv_retro.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = tv_retro.usdz; sourceTree = "<group>"; };
 		E06635132BAD0939003BB003 /* TextToImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextToImage.swift; sourceTree = "<group>"; };
@@ -171,7 +172,6 @@
 		E06635352BAE0813003BB003 /* fender_stratocaster.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = fender_stratocaster.usdz; sourceTree = "<group>"; };
 		E06635372BAE0969003BB003 /* chair.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = chair.usdz; sourceTree = "<group>"; };
 		E06635392BAE131D003BB003 /* wateringcan.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = wateringcan.usdz; sourceTree = "<group>"; };
-		E066353B2BAE1347003BB003 /* gramophone.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; name = gramophone.usdz; path = ../../../../../Downloads/gramophone.usdz; sourceTree = "<group>"; };
 		E066353D2BAE136B003BB003 /* toy_biplane_idle.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = toy_biplane_idle.usdz; sourceTree = "<group>"; };
 		E09EF0192BAB509A0048E00B /* FirebaseFirestore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseFirestore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E09EF01B2BAB50C80048E00B /* FirebaseCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FirebaseCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -340,8 +340,8 @@
 				E066353D2BAE136B003BB003 /* toy_biplane_idle.usdz */,
 				E06635352BAE0813003BB003 /* fender_stratocaster.usdz */,
 				E06635222BAD0D59003BB003 /* teapot.usdz */,
+				E02355802BB508AE0049A293 /* gramophone.usdz */,
 				E06635202BAD0D4A003BB003 /* flower_tulip.usdz */,
-				E066353B2BAE1347003BB003 /* gramophone.usdz */,
 				E06635392BAE131D003BB003 /* wateringcan.usdz */,
 				E066352E2BADDC86003BB003 /* toy_drummer_idle.usdz */,
 				E06634FF2BACD9F3003BB003 /* pancakes.usdz */,
@@ -524,7 +524,6 @@
 				536BF1CA27E6302200F4E28B /* Preview Assets.xcassets in Resources */,
 				E06635362BAE0813003BB003 /* fender_stratocaster.usdz in Resources */,
 				E066352B2BAD6AAD003BB003 /* robot.usdz in Resources */,
-				E066353C2BAE1347003BB003 /* gramophone.usdz in Resources */,
 				E066350F2BACDA49003BB003 /* tv_retro.usdz in Resources */,
 				536BF1C727E6302200F4E28B /* Assets.xcassets in Resources */,
 				E06635272BAD0D6F003BB003 /* sneaker_pegasustrail.usdz in Resources */,
@@ -538,6 +537,7 @@
 				E06635232BAD0D5A003BB003 /* teapot.usdz in Resources */,
 				E06635312BADF3B0003BB003 /* .gitignore.rtf in Resources */,
 				E066352F2BADDC86003BB003 /* toy_drummer_idle.usdz in Resources */,
+				E02355812BB508AE0049A293 /* gramophone.usdz in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -855,7 +855,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "${PRODUCT_NAME}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mirayu.aidvocatarreal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -888,7 +888,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "${PRODUCT_NAME}";
+				PRODUCT_BUNDLE_IDENTIFIER = com.mirayu.aidvocatarreal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -908,7 +908,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.placeholder.advotech;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mirayu.aidvocatarreal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -929,7 +929,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.placeholder.advotech;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mirayu.aidvocatarreal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -948,7 +948,7 @@
 				DEVELOPMENT_TEAM = LXWN56XT5K;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.placeholder.advotech;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mirayu.aidvocatarreal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
@@ -967,7 +967,7 @@
 				DEVELOPMENT_TEAM = LXWN56XT5K;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.placeholder.advotech;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mirayu.aidvocatarreal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
